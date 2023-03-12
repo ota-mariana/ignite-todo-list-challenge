@@ -1,0 +1,55 @@
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple-dark);
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+
+.title img {
+  margin-right: 0.75rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4.5rem;
+  margin-bottom: 4rem;
+}
+
+.addTextArea {
+  display: flex;
+  flex-direction: row;
+}
+
+.addTextArea input {
+  background: var(--gray-500);
+  color: var(--gray-300);
+  width: 46rem;
+  height: 3.3rem;
+  margin-top: 2.5rem;
+  margin-right: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  line-height: 1.4;
+  padding: 1rem;
+}
+
+.addTextArea button {
+  background: var(--blue-dark);
+  color: var(--gray-100);
+  padding: 1rem;
+  height: 3.3rem;
+  margin-top: 2.5rem;
+  margin-right: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  transition: 0.1s;
+}
+
+.addTextArea button:hover {
+  background: var(--blue);
+}
