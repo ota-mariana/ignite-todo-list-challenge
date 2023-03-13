@@ -1,5 +1,6 @@
 import style from './TaskList.module.css';
 import { File } from 'phosphor-react'
+import { Tasks } from './Tasks';
 
 export function TaskList() {
   return (
@@ -15,6 +16,8 @@ export function TaskList() {
           <span>0</span>
         </div>
       </div>
+
+      <Tasks />
 
       <div className={ style.listEmpty }>
         <File size={56} />

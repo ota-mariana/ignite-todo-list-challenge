@@ -15,7 +15,6 @@ export function Header() {
         <input
           className="input-add-text"
           type="text"
-          name=""
           placeholder="Adicione uma nova tarefa"
         />
 
