@@ -2,22 +2,30 @@ import style from './TaskList.module.css';
 import { File } from 'phosphor-react'
 import { Tasks } from './Tasks';
 
-export function TaskList() {
+export function TaskList({ taskList }) {
+  const tasksTotal = taskList.length;
+  const tasksDone = taskList.filter((task) => task.isDone);
+  const totalTasksDone = tasksDone.length;
+
   return (
     <div className={ style.boxContent }>
       <div className={ style.taskCount }>
         <div className={ style.createdTask }>
           <p>Tarefas criadas</p>
-          <span>0</span>
+          <span>{ tasksTotal }</span>
         </div>
 
         <div className={ style.taskDone }>
           <p>Concluídas</p>
-          <span>0</span>
+          <span>{ totalTasksDone } de { tasksTotal }</span>
         </div>
       </div>
 
-      <Tasks />
+      {
+        taskList.map((task) => {
+          return <Tasks key={task.id} task={ task }/>
+        })
+      }
 
       <div className={ style.listEmpty }>
         <File size={56} />
