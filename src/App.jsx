@@ -6,7 +6,6 @@ import { TaskList } from './components/TaskList';
 import { useState } from 'react';
 
 function App() {
-  const [newTask, setNewTask] = useState('');
   const [taskList, setTaskList] = useState([
     {
       id: 1,
@@ -19,16 +18,23 @@ function App() {
       isDone: false,
     },
   ]);
+  
+  console.log(taskList);
 
   const handleAddNewTask = (newTaskContent) => {
     setTaskList([...taskList, { id: crypto.randomUUID(), content: newTaskContent, isDone: false }]);
+  }
+
+  const deleteTaskById = (taskId) => {
+    const taskListFiltered = taskList.filter((task) => taskId !== task.id);
+    setTaskList(taskListFiltered);
   }
   
   return (
     <div className={ style.content }>
       <Header onAddNewTask={ handleAddNewTask } />
 
-      <TaskList taskList={ taskList }/>
+      <TaskList taskList={ taskList } onDeleteTask={ deleteTaskById } />
     </div>
   )
 }

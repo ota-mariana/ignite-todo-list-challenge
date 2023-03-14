@@ -1,7 +1,7 @@
 import { Trash } from 'phosphor-react';
 import style from './Tasks.module.css';
 
-export function Tasks({ task }) {
+export function Tasks({ task, onDeleteTask }) {
   return (
     <div className={ style.tasks }>
       <div className={ style.taskContent }>
@@ -10,7 +10,11 @@ export function Tasks({ task }) {
           { task.content }
         </label>
 
-        <Trash className={ style.deleteTask } size={20}/>
+        <Trash
+          className={ style.deleteTask }
+          size={20}
+          onClick={ () => onDeleteTask(task.id) }
+        />
       </div>
     </div>
   )
