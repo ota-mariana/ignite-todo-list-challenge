@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import logotipoRocket from '../assets/rocket.svg';
+import logotipoRocket from '../assets/logotipo.svg';
 
 import style from './Header.module.css';
 
@@ -20,10 +20,8 @@ export function Header({ onAddNewTask }) {
 
   return (
     <div className={ style.header }>
-      <div className={ style.title }>
+      <div className={ style.logo }>
         <img src={ logotipoRocket } alt="Logotipo rocket" />
-
-        <h1>todo</h1>
       </div>
 
       <form onSubmit={ handleTaskSubmit } className={ style.addTextArea }>

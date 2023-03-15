@@ -29,12 +29,25 @@ function App() {
     const taskListFiltered = taskList.filter((task) => taskId !== task.id);
     setTaskList(taskListFiltered);
   }
+
+  const handleTaskDone = (taskDone) => {
+    taskList.map((task) => {
+      if (taskDone === task.id) {
+        return { ...task, isDone: !task.isDone }
+      }
+      return task;
+    });
+  };
   
   return (
     <div className={ style.content }>
       <Header onAddNewTask={ handleAddNewTask } />
 
-      <TaskList taskList={ taskList } onDeleteTask={ deleteTaskById } />
+      <TaskList
+        taskList={ taskList }
+        onDeleteTask={ deleteTaskById }
+        onHandleTaskDone={ handleTaskDone }
+      />
     </div>
   )
 }
