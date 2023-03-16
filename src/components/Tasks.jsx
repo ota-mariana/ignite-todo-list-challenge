@@ -9,7 +9,7 @@ export function Tasks({ task, onDeleteTask, onHandleTaskDone }) {
        { task.isDone ? <Check />  : <div /> }
       </button>
         
-      <p>
+      <p className={ task.isDone ? style.textCheck : "" }>
         { task.content }
       </p>
       
