@@ -66,12 +66,10 @@ Icons: [Phosphor](https://phosphoricons.com/)
 ---
 
 ## 👤 Autor 
-
-<div style="display: flex; flex-direction: column; align-items: center; line-height: 1">
-  <img style="border-radius: 100%;" src="https://github.com/ota-mariana.png" width="100px;" alt=""/>
-  <br />
-  <p>Mariana Naomi Ota</p>
-</div>
+<p align="center">
+  <img styles="border-radius: 100%;" src="https://github.com/ota-mariana.png" width="100px;" alt=""/>
+</p>
+<p align="center">Mariana Naomi Ota</p>
 
 ---
 
@@ -81,4 +79,4 @@ This project is licensed by [MIT](./LICENSE).
 
 ---
 
-<p align="center">Projeto desenvolvido com ❤️ por Mariana Ota</p>
+<p align="center">Project developed with ❤️ by Mariana Ota</p>
