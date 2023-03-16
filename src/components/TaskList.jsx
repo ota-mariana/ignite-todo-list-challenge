@@ -2,7 +2,7 @@ import style from './TaskList.module.css';
 import { File } from 'phosphor-react'
 import { Tasks } from './Tasks';
 
-export function TaskList({ taskList, onDeleteTask }) {
+export function TaskList({ taskList, onDeleteTask, onHandleTaskDone }) {
   const tasksTotal = taskList.length;
   const tasksDone = taskList.filter((task) => task.isDone);
   const totalTasksDone = tasksDone.length;
@@ -23,7 +23,14 @@ export function TaskList({ taskList, onDeleteTask }) {
 
       {
         taskList.map((task) => {
-          return <Tasks key={task.id} task={ task } onDeleteTask={ onDeleteTask } />
+          return (
+          <Tasks
+            key={task.id}
+            task={ task }
+            onDeleteTask={ onDeleteTask }
+            onHandleTaskDone={ onHandleTaskDone }
+          />
+          )
         })
       }
 

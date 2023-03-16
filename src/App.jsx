@@ -31,12 +31,14 @@ function App() {
   }
 
   const handleTaskDone = (taskDone) => {
-    taskList.map((task) => {
+    const newTaskList = taskList.map((task) => {
       if (taskDone === task.id) {
         return { ...task, isDone: !task.isDone }
       }
       return task;
     });
+    
+    setTaskList(newTaskList);
   };
   
   return (
