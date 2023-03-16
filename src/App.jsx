@@ -3,32 +3,31 @@ import './global.css';
 
 import { Header } from './components/Header';
 import { TaskList } from './components/TaskList';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const [taskList, setTaskList] = useState([
-    {
-      id: 1,
-      content: 'Testando os componentes',
-      isDone: true,
-    },
-    {
-      id: 2,
-      content: 'Limpar a casa',
-      isDone: false,
-    },
-  ]);
+  const [taskList, setTaskList] = useState([]);
   
-  console.log(taskList);
+  const saveChangesInLocalstorage = (newTasks) => {
+    setTaskList(newTasks);
+    localStorage.setItem('todo', JSON.stringify(newTasks))
+  };
+
+  const loadDataFromLocalstorage = () => {
+    const savedData = localStorage.getItem('todo');
+    if (savedData) {
+      setTaskList(JSON.parse(savedData));
+    }
+  };
 
   const handleAddNewTask = (newTaskContent) => {
-    setTaskList([...taskList, { id: crypto.randomUUID(), content: newTaskContent, isDone: false }]);
-  }
+    saveChangesInLocalstorage([...taskList, { id: crypto.randomUUID(), content: newTaskContent, isDone: false }]);
+  };
 
   const deleteTaskById = (taskId) => {
     const taskListFiltered = taskList.filter((task) => taskId !== task.id);
-    setTaskList(taskListFiltered);
-  }
+    saveChangesInLocalstorage(taskListFiltered);
+  };
 
   const handleTaskDone = (taskDone) => {
     const newTaskList = taskList.map((task) => {
@@ -38,8 +37,12 @@ function App() {
       return task;
     });
     
-    setTaskList(newTaskList);
+    saveChangesInLocalstorage(newTaskList);
   };
+
+  useEffect(() => {
+    loadDataFromLocalstorage()
+  }, []);
   
   return (
     <div className={ style.content }>
