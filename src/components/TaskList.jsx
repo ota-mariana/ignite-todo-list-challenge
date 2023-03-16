@@ -34,11 +34,15 @@ export function TaskList({ taskList, onDeleteTask, onHandleTaskDone }) {
         })
       }
 
-      <div className={ style.listEmpty }>
-        <File size={56} />
-        <p>Você ainda não tem tarefas cadastradas</p>
-        <p>Crie tarefas e organize seus itens a fazer</p>
-      </div>
+      {
+        tasksTotal !== 0 || tasksDone !== 0 && (
+          <div className={ style.listEmpty }>
+            <File size={56} />
+            <p>Você ainda não tem tarefas cadastradas</p>
+            <p>Crie tarefas e organize seus itens a fazer</p>
+          </div>
+        )
+      }
     </div>
   )
 }
